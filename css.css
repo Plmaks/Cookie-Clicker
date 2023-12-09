@@ -1,0 +1,24 @@
+.upg {
+    position: absolute;
+    background-color: darkblue;
+    width: 225px;
+    height: 100%;
+    left: 0%;
+    bottom: 0%;
+}
+
+.upg > * {
+    text-align: center;
+    background-color: black;
+    width: 97%;
+    height: 100px;
+    color: cadetblue;
+    border: solid darkblue;
+}
+
+.Whip {
+    position: absolute; 
+    top: 50%; 
+    left: 47.5%; 
+    visibility: hidden;
+}

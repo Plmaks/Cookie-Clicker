@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="script.js"></script>
+</head>
+<body bgcolor="darkcyan">
+    <center><h1>Welcome To Cookie Clicker!</h1></center>
+    <center><h1>You Have <span id="amount">0</span> Cookies! <span id="smily">:(</span></h1></center>
+    <center><img src="Images/cookie.png" alt="cookie png" onclick="earn()"></center>
+
+    <button onclick="Worker()" id="Whip" class="Whip">Worker Whip</button>
+
+    <div id="Upgrades" class="upg">
+        <div id="upg1" class="upg1" onclick="upgrades(upg1)">Mouse Upgrade <br><br> <span id="upg1_amount">0</span> <p>Cost: <span id="upg1_cost">10</span></p></div>
+        <div id="upg2" class="upg2" onclick="upgrades(upg2)">Worker Mouse <br><br> <span id="upg2_amount">0</span> <p>Cost: <span id="upg2_cost">15</span></p></div>
+    </div>
+</body>
+</html>
