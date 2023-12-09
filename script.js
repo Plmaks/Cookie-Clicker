@@ -1,21 +1,22 @@
-// Variable Declarations
-let cookies, smitog, add, amount, cost1, upg1_amount, slaves, cost2, whips
+// Variable Inits
+let cookies, smitog, add, cost1, upg1_amount, slaves, cost2, whips
+// Var Declars
+whips = 0
+slaves = 0
 
 function earn() {
     // Initialization
     cookies = parseInt(document.getElementById("amount").innerHTML)
-    smitog = document.getElementById("smily").innerHTML
+    smitog = document.getElementById("smily")
     if (typeof add === "undefined") {
         add = 1
-    } else {
-        
-    }
+    } else {}
 
-    if (amount < 1000) {
+    if (cookies > 1000 && cookies < 2500) {
         smitog.innerHTML = ":)"
-    } else if (amount < 2500) {
+    } else if (cookies > 2500 && cookies < 3000) {
         smitog.innerHTML = "Thanks for enjoying my game!"
-    } else if (amount < 3000) {
+    } else if (cookies > 3000) {
         smitog.innerHTML = ""
     } else {
         smitog.innerHTML = ""
@@ -34,26 +35,16 @@ function Workerspawn() {
 }
 
 function Worker() {
-    /*
-        The fact that this fucking language goes for conditions first while ignoring every other fucking thing is genuinely more infuriating than
-        being stuck on one single fucking bug for 2 hours straight. Actually if we are being real me coding this at nearly 00:50 is more infuriating
-        than anything else really, like who the fuck codes after midnight?
-    */ 
-    if (typeof whips === "undefined") {
+    if (whips != 0) {
+        cookies = parseInt(document.getElementById("amount").innerHTML)
+        whips--
+        cookies = cookies + slaves
+        document.getElementById("amount").innerHTML = cookies
+        console.log(whips)
+        setTimeout(Worker, 1000)
+    } else if (whips != 10 && whips < 9,8,7,6,5,4,3,2,1) {
         whips = 10
     }
-
-    cookies = parseInt(document.getElementById("amount").innerHTML)
-    while (whips > 0) {
-        whips--
-        setTimeout(Worker, 1000)
-    }
-
-    cookies = cookies + slaves
-    document.getElementById("amount").innerHTML = cookies
-
-    //Debug
-    console.log(whips)
 
     return cookies, slaves, whips
 }
@@ -61,22 +52,31 @@ function Worker() {
 function upgrades(type) {
     switch(type) {
        case upg1:
-        upg1_amount = parseInt(document.getElementById("upg1_amount").innerHTML) 
-        cost1 = 10 + (upg1_amount * 2)
+        upg1_amount = parseInt(document.getElementById("upg1_amount").innerHTML) + 1
+        cost1 = 8 + (upg1_amount * 2)
         if (cookies >= cost1) {
             add++
             cookies = cookies - cost1
+            // Re-setting shit up
+            cost1 = cost1 + (upg1_amount * 2)
+            document.getElementById("upg1_amount").innerHTML = upg1_amount
+            document.getElementById("upg1_cost").innerHTML = cost1
             document.getElementById("amount").innerHTML = cookies
         } else {
             alert("No money?")
         }
         return add, cost1, cookies, upg1_amount
        case upg2:
-        upg2_amount = parseInt(document.getElementById("upg2_amount").innerHTML) 
-        cost2 = 15 + (upg2_amount * 2)
+        upg2_amount = parseInt(document.getElementById("upg2_amount").innerHTML) + 1
+        cost2 = 18 + (upg2_amount * 2)
         if (cookies >= cost2) {
             slaves++
             cookies = cookies - cost2
+            document.getElementById("amount").innerHTML = cookies
+            // Re-setting part 2: The Eletric Boogalo
+            cost2 = cost2 + (upg2_amount * 2)
+            document.getElementById("upg2_amount").innerHTML = upg2_amount
+            document.getElementById("upg2_cost").innerHTML = cost2
             document.getElementById("amount").innerHTML = cookies
             Worker() 
             Workerspawn()
