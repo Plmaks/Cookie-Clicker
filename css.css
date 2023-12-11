@@ -25,12 +25,16 @@
 
 .save {
     position: absolute;
-    top: 50%;
-    left: 40%;
+    top: 97%;
+    left: 97%;
 }
 
 .load {
     position: absolute;
-    top: 50%;
-    left: 35%;
+    top: 97%;
+    left: 94%;
+}
+
+.cursor {
+    position: absolute;
 }
