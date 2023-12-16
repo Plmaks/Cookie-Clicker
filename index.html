@@ -8,6 +8,8 @@
     <script src="script.js"></script>
 </head>
 <body bgcolor="darkcyan">
+    <!-- Move this clusterfuck to Flexbox tommorow 16/12/2023 (Wait, that's today, already?) -->
+
     <center><h1>Welcome To Cookie Clicker!</h1></center>
     <center><h1>You Have <span id="amount">0</span> Cookies! <span id="smily"></span></h1></center>
     <br><br><br><br><br><br><br>
@@ -16,9 +18,11 @@
     <button class="save" onclick="Save()">Save</button>
     <button class="load" onclick="Load()">Load</button>
 
+    <button onclick="sidebar()" class="sidebar"><img height="100px" width="100px" src="Images/side_arrow.png" alt=""></button>
     <div id="Upgrades" class="upg">
-        <div id="upg1" class="upg1" onclick="upgrades(upg1)">Mouse Upgrade <br><br> <span id="upg1_amount">0</span> <p>Cost: <span id="upg1_cost">10</span></p></div>
-        <div id="upg2" class="upg2" onclick="upgrades(upg2)">Worker Mouse <br><br> <span id="upg2_amount">0</span> <p>Cost: <span id="upg2_cost">20</span></p></div>
+        <div id="upg1" onclick="upgrades(upg1)">Mouse Upgrade <br><br> <span id="upg1_amount">0</span> <p>Cost: <span id="upg1_cost">10</span></p></div>
+        <div id="upg2" onclick="upgrades(upg2)">Worker Mouse <br><br> <span id="upg2_amount">0</span> <p>Cost: <span id="upg2_cost">20</span></p></div>
+        <div id="upg3" onclick="upgrades(upg3)">Cookie Farm <br><br> <span id="upg3_amount">0</span> <p>Cost: <span id="upg3_cost">50</span></p></div>
     </div>
 
     

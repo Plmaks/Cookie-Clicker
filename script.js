@@ -1,12 +1,17 @@
 // Variable Inits
-let cookies, smitog, add, cost1, upg1_amount, slaves, cost2, Key, Pressed, cursor
+let cookies, smitog, add, cost1, upg1_amount, slaves, cost2, Key, Pressed, cursor, farms, Working2, farm_prod, upg2_amount, upg3_amount, cost3
 // Global Var Declars
 slaves = 0
+farms = 0
 Working = false
+Working2 = false
 upg1_amount = 1
 upg2_amount = 1
+upg3_amount = 1
 cost1 = 7 + (upg1_amount * 3)
 cost2 = 17 + (upg2_amount * 3)
+cost3 = 46 + (upg3_amount * 4)
+farm_prod = 3
 
 //Keybinds
 document.addEventListener("keydown", Getkey)
@@ -20,6 +25,9 @@ function Getkey(Pressed) {
             break;
         case "2":
             upgrades(upg2)
+            break;
+        case "3":
+            upgrades(upg3)
             break;
         default:
             console.log(Key)
@@ -38,10 +46,15 @@ function Save() {
     localStorage.setItem("add_dat", add)
     localStorage.setItem("cost1_dat", cost1)
     localStorage.setItem("cost2_dat", cost2)
+    localStorage.setItem("cost3_dat", cost3)
     localStorage.setItem("upg1_amount_dat", upg1_amount)
     localStorage.setItem("upg2_amount_dat", upg2_amount)
+    localStorage.setItem("upg3_amount_dat", upg3_amount)
     localStorage.setItem("slaves_dat", slaves)
+    localStorage.setItem("farms_dat", farms)
+    localStorage.setItem("farm_prod_dat", farm_prod)
     localStorage.setItem("working_dat", Working)
+    localStorage.setItem("Working2_dat", Working2)
 
     console.log("Saved?")
 }
@@ -52,18 +65,28 @@ function Load() {
     document.getElementById("upg1_cost").innerHTML = localStorage.getItem("cost1_dat")
     document.getElementById("upg2_amount").innerHTML = localStorage.getItem("upg2_amount_dat")
     document.getElementById("upg2_cost").innerHTML = localStorage.getItem("cost2_dat")
+    document.getElementById("upg3_cost").innerHTML = localStorage.getItem("cost3_dat")
+    document.getElementById("upg3_amount").innerHTML = localStorage.getItem("upg3_amount_dat")
 
-    cookies = localStorage.getItem("cookies_dat")
-    add = localStorage.getItem("add_dat")
-    cost1 = localStorage.getItem("cost1_dat")
-    cost2 = localStorage.getItem("cost2_dat")
-    upg1_amount = localStorage.getItem("upg1_amount_dat")
-    upg2_amount = localStorage.getItem("upg2_amount_dat")
-    slaves = localStorage.getItem("slaves_dat")
-    Working = localStorage.getItem("working_dat")
+    cookies = parseInt(localStorage.getItem("cookies_dat"))
+    add = parseInt(localStorage.getItem("add_dat"))
+    cost1 = parseInt(localStorage.getItem("cost1_dat"))
+    cost2 = parseInt(localStorage.getItem("cost2_dat"))
+    upg1_amount = parseInt(localStorage.getItem("upg1_amount_dat"))
+    upg2_amount = parseInt(localStorage.getItem("upg2_amount_dat"))
+    upg3_amount = parseInt(localStorage.getItem("upg3_amount_dat"))
+    cost3 = parseInt(localStorage.getItem("cost3_dat"))
+    slaves = parseInt(localStorage.getItem("slaves_dat"))
+    Working = parseInt(localStorage.getItem("working_dat"))
+    Working2 = parseInt(localStorage.getItem("Working2_dat"))
+    farms = parseInt(localStorage.getItem("farms_dat"))
+    farm_prod = parseInt(localStorage.getItem("farm_prod_dat"))
 
     if (slaves > 0) {
-        Worker
+        Worker()
+    }
+    if (farms > 0) {
+        Farm()
     }
 
     //Flavor text
@@ -107,22 +130,13 @@ function earn() {
     return cookies, smitog, add, amount
 }
 
-// Idk why the image doesn't appear, src appears to be correct, fix later
-function Workerspawn() {
-    cursor = document.createElement("IMG")
-    cursor.className = "cursor"
-    cursor.src = "Images/cursor.png"
-    // Setting up position
-    pos_offset_x = 20
-    pos_offset_y = 20
-    cursor.style.top = "500px" //- pos_offset_y
-    cursor.style.left = "500px" //- pos_offset_x
-    pos_offset_x += 10
-    pos_offset_y += 10
-}
+// Space reserved for graphics I will do when I finish all the upgrades
 
+// Space
+
+// Idle worker functions
 function Worker() {
-    //Global flag, so buying the upgrade doesn't inflate the amount of times that mouse workers are called
+    //Global flag, so buying the workers doesn't inflate the amount of times that mouse workers are called
     Working = true
     
     if (1 == 1) {
@@ -134,6 +148,21 @@ function Worker() {
 
     return cookies, slaves
 }
+
+function Farm() {
+    //Global flag, so buying the farms doesn't inflate the amount of times that mouse workers are called
+    Working2 = true
+    
+    if (1 == 1) {
+        cookies = parseInt(document.getElementById("amount").innerHTML)
+        cookies = cookies + (farms * farm_prod)
+        document.getElementById("amount").innerHTML = cookies
+        setTimeout(Farm, 1000)
+    }
+
+    return cookies, slaves
+}
+// Idle upgrade functions end
 
 function upgrades(type) {
     switch(type) {
@@ -181,7 +210,43 @@ function upgrades(type) {
         }
         
         return slaves, upg2_amount, cost2, cookies
+       case upg3:
+        upg3_amount = parseInt(document.getElementById("upg3_amount").innerHTML) + 1
+        if (cookies >= cost3 && Working2 == false) {
+            farms++
+            cookies = cookies - cost3
+            document.getElementById("amount").innerHTML = cookies
+            // Var updates
+            cost3 = cost3 + (upg3_amount * 4)
+            document.getElementById("upg3_amount").innerHTML = upg3_amount
+            document.getElementById("upg3_cost").innerHTML = cost3
+            document.getElementById("amount").innerHTML = cookies
+            Farmspawn()
+            Farm()
+        } else if (cookies >= cost3 && Working2 == true) {
+            farms++
+            cookies = cookies - cost3
+            document.getElementById("amount").innerHTML = cookies
+            // Var updates
+            cost3 = cost3 + (upg3_amount * 4)
+            document.getElementById("upg3_amount").innerHTML = upg3_amount
+            document.getElementById("upg3_cost").innerHTML = cost3
+            document.getElementById("amount").innerHTML = cookies
+            Farmspawn()
+        } else {
+            alert("Not enough money m8")
+        }
        default:
         break;
+    }
+}
+
+function sidebar() {
+    let upg = document.getElementById("upg") 
+    // fix this shite later
+    if (upg.style.display = "none") {
+        upg.style.display = "flex"
+    } else {
+        upg.style.display = "none"
     }
 }
