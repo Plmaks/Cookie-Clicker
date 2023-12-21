@@ -8,23 +8,23 @@
     <script src="script.js"></script>
 </head>
 <body bgcolor="darkcyan">
-    <!-- Move this clusterfuck to Flexbox tommorow 16/12/2023 (Wait, that's today, already?) -->
-
-    <center><h1>Welcome To Cookie Clicker!</h1></center>
-    <center><h1>You Have <span id="amount">0</span> Cookies! <span id="smily"></span></h1></center>
-    <br><br><br><br><br><br><br>
-    <center><img src="Images/cookie.png" alt="cookie png" onclick="earn()"></center>
-
-    <button class="save" onclick="Save()">Save</button>
-    <button class="load" onclick="Load()">Load</button>
-
-    <button onclick="sidebar()" class="sidebar"><img height="100px" width="100px" src="Images/side_arrow.png" alt=""></button>
+    <!-- Move this clusterfuck to Flexbox tommorow 16/12/2023 (Wait, that's today, already?, well guess what day it is now, buddy (21/12/2o23)) -->
     <div id="Upgrades" class="upg">
         <div id="upg1" onclick="upgrades(upg1)">Mouse Upgrade <br><br> <span id="upg1_amount">0</span> <p>Cost: <span id="upg1_cost">10</span></p></div>
         <div id="upg2" onclick="upgrades(upg2)">Worker Mouse <br><br> <span id="upg2_amount">0</span> <p>Cost: <span id="upg2_cost">20</span></p></div>
         <div id="upg3" onclick="upgrades(upg3)">Cookie Farm <br><br> <span id="upg3_amount">0</span> <p>Cost: <span id="upg3_cost">50</span></p></div>
     </div>
+    <button onclick="sidebar()" class="sidebar"><img style="margin-right: 10px;" height="60px" width="35px" src="Images/side_arrow.png" alt=""></button>
 
+    <div class="middle">
+        <h1>Welcome To Cookie Clicker! <br> You Have <span id="amount">0</span> Cookies! <span id="smily"></span></h1>
+        <img class="cookie" src="Images/cookie.png" alt="cookie png" width="250px" height="250px" onclick="earn()">
     
+        <button onclick="bottombar()" class="bottombar"><img height="60px" width="35px" src="Images/bottom_arrow.png" alt=""></button>
+        <div class="options" id="options">
+            <button style="margin-left: 149px;" onclick="Save()">Save</button>
+            <button onclick="Load()">Load</button>
+        </div>
+    </div>    
 </body>
 </html>

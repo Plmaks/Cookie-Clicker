@@ -242,11 +242,23 @@ function upgrades(type) {
 }
 
 function sidebar() {
-    let upg = document.getElementById("upg") 
-    // fix this shite later
-    if (upg.style.display = "none") {
+    //Change it from display to visibility and changem margin for the arrow png, I don't want to fuck around with anchoring or whatever
+
+    let upg = document.getElementById("Upgrades") 
+    if (upg.style.display == "none") {
         upg.style.display = "flex"
     } else {
         upg.style.display = "none"
+    }
+}
+
+function bottombar() {
+    //Change it from display to visibility and changem margin for the arrow png, I don't want to fuck around with anchoring or whatever
+
+    let options = document.getElementById("options") 
+    if (options.style.display == "none") {
+        options.style.display = "flex"
+    } else {
+        options.style.display = "none"
     }
 }
