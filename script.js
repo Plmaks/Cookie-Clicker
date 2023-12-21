@@ -193,7 +193,7 @@ function upgrades(type) {
             document.getElementById("upg2_amount").innerHTML = upg2_amount
             document.getElementById("upg2_cost").innerHTML = cost2
             document.getElementById("amount").innerHTML = cookies
-            Workerspawn()
+            // Workerspawn()
             Worker()
         } else if (cookies >= cost2 && Working == true) {
             slaves++
@@ -204,7 +204,7 @@ function upgrades(type) {
             document.getElementById("upg2_amount").innerHTML = upg2_amount
             document.getElementById("upg2_cost").innerHTML = cost2
             document.getElementById("amount").innerHTML = cookies
-            Workerspawn()
+            // Workerspawn()
         } else {
             alert("Just admit you are broke, boy")
         }
@@ -221,7 +221,7 @@ function upgrades(type) {
             document.getElementById("upg3_amount").innerHTML = upg3_amount
             document.getElementById("upg3_cost").innerHTML = cost3
             document.getElementById("amount").innerHTML = cookies
-            Farmspawn()
+            // Farmspawn()
             Farm()
         } else if (cookies >= cost3 && Working2 == true) {
             farms++
@@ -232,7 +232,7 @@ function upgrades(type) {
             document.getElementById("upg3_amount").innerHTML = upg3_amount
             document.getElementById("upg3_cost").innerHTML = cost3
             document.getElementById("amount").innerHTML = cookies
-            Farmspawn()
+            // Farmspawn()
         } else {
             alert("Not enough money m8")
         }
