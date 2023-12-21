@@ -262,3 +262,15 @@ function bottombar() {
         options.style.display = "none"
     }
 }
+
+function onload() {
+    //Check if user is on a mobile device, if user is on mobile, set overflow to be scrollable
+
+    let body = document.getElementById("body")
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        body.style.overflow = "scroll"
+    } else {
+        body.style.overflow = "hidden"
+    }
+}
