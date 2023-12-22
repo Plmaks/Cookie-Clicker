@@ -242,24 +242,27 @@ function upgrades(type) {
 }
 
 function sidebar() {
-    //Change it from display to visibility and changem margin for the arrow png, I don't want to fuck around with anchoring or whatever
-
-    let upg = document.getElementById("Upgrades") 
-    if (upg.style.display == "none") {
-        upg.style.display = "flex"
-    } else {
+    //Sidebars
+    let upg = document.getElementById("Upgrades")
+    
+    if (upg.style.display == "flex") {
         upg.style.display = "none"
+    } else {
+        upg.style.display = "flex"
     }
 }
 
 function bottombar() {
-    //Change it from display to visibility and changem margin for the arrow png, I don't want to fuck around with anchoring or whatever
+    //Bottombar
+    let options = document.getElementById("options")
+    let bottom_arrow = document.getElementById("bottom_arrow")
 
-    let options = document.getElementById("options") 
-    if (options.style.display == "none") {
-        options.style.display = "flex"
-    } else {
+    if (options.style.display == "flex") {
         options.style.display = "none"
+        bottom_arrow.style.marginTop = "213px"
+    } else {
+        options.style.display = "flex"
+        bottom_arrow.style.marginTop = "192px"
     }
 }
 
