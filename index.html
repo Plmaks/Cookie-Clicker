@@ -8,9 +8,11 @@
     <script src="script.js"></script>
 </head>
 <body bgcolor="darkcyan" onload="onload()" id="body">
-    <!-- Move this clusterfuck to Flexbox tommorow 16/12/2023 (Wait, that's today, already?, well guess what day it is now, buddy (21/12/2o23)) -->
+    <!-- 
+        Let this fucking disaster of an html (Also JS) file remind you forevermore, the reason for naming things properly.
+        Because, I am pretty fucking sure that those aren't really upgrades, but workers instead. - Max 26/12/2023
+    -->
     <div id="Upgrades" class="upg">
-        <div id="upg1" onclick="upgrades(upg1)">Mouse Upgrade <br><br> <span id="upg1_amount">0</span> <p>Cost: <span id="upg1_cost">10</span></p></div>
         <div id="upg2" onclick="upgrades(upg2)">Worker Mouse <br><br> <span id="upg2_amount">0</span> <p>Cost: <span id="upg2_cost">20</span></p></div>
         <div id="upg3" onclick="upgrades(upg3)">Cookie Farm <br><br> <span id="upg3_amount">0</span> <p>Cost: <span id="upg3_cost">50</span></p></div>
     </div>
@@ -25,6 +27,14 @@
             <button style="margin-left: 149px;" onclick="Save()">Save</button>
             <button onclick="Load()">Load</button>
         </div>
-    </div>    
+    </div> 
+    
+    <button id="right_arrow" onclick="rightbar()" class="rightbar"><img height="60px" width="35px" src="Images/side_arrow.png" alt=""></button>
+    <div class="right">
+        <div class="Upgrades_proper" id="Upg_proper">
+                                <!-- (  don't ask   ) -->
+            <div id="upg1" onclick="upgrades(upg1)">Mouse Upgrade <br><br> <span id="upg1_amount">0</span> <p>Cost: <span id="upg1_cost">10</span></p></div>        
+        </div>
+    </div>
 </body>
 </html>

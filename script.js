@@ -19,14 +19,12 @@ document.addEventListener("keydown", Getkey)
 function Getkey(Pressed) {
     Key = Pressed.key
     
+    // Don't ask
     switch (Key) {
         case "1":
-            upgrades(upg1)
-            break;
-        case "2":
             upgrades(upg2)
             break;
-        case "3":
+        case "2":
             upgrades(upg3)
             break;
         default:

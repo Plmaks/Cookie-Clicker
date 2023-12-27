@@ -26,9 +26,24 @@ body > * {
     border: solid darkblue 5px;
 }
 
+.right {
+    display: flex;
+    flex-direction: column;
+    background-color: darkblue;
+    height: 100%;
+    margin-right: -6px;
+}
+
+.right > * {
+    margin-bottom: -5px;
+    background-color: black;
+    width: 200px;
+    color: cadetblue;
+    border: solid darkblue 5px;
+}
+
 .middle {
-    position: fixed;
-    margin-left: 37.5%;
+    margin-left: 20%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -39,7 +54,7 @@ body > * {
 }
 
 .options {
-    margin-top: -5px;
+    margin-top: -4px;
     display: flex;
     width: 100%;
     height: 100%;
@@ -48,8 +63,10 @@ body > * {
     background-color: darkblue;
 }
 
-.options > * {
-
+button {
+    background-color: darkcyan;
+    border-radius: 7.5px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .sidebar {
@@ -62,4 +79,19 @@ body > * {
     margin-top: 192px;
     background: none;
     border: none;
+}
+
+.rightbar {
+    margin-top: 20%;
+    margin-left: 20.6%;
+    background: none;
+    border: none;
+}
+
+.right {
+    flex-direction: column;
+}
+
+.rightbar {
+    transform: scaleX(-1);
 }
