@@ -15,7 +15,7 @@ body > * {
     flex-direction: column;
     background-color: darkblue;
     height: 100%;
-    margin-right: -6px;
+    margin-right: -5px;
 }
 
 .upg > * {
@@ -43,10 +43,11 @@ body > * {
 }
 
 .middle {
-    margin-left: 20%;
+    position: fixed;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 35%;
 }
 
 .cookie {
@@ -83,15 +84,26 @@ button {
 
 .rightbar {
     margin-top: 20%;
-    margin-left: 20.6%;
+    margin-left: 83.9%;
     background: none;
     border: none;
 }
 
 .right {
+    margin-left: 86.3%;
+    display: flex;
+    position: fixed;
+    background: none;
+}
+
+.right > div {
+    display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 .rightbar {
+    position: fixed;
     transform: scaleX(-1);
 }

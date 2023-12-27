@@ -242,11 +242,14 @@ function upgrades(type) {
 function sidebar() {
     //Sidebars
     let upg = document.getElementById("Upgrades")
+    let side_arrow = document.getElementById("side_arrow")
     
     if (upg.style.display == "flex") {
         upg.style.display = "none"
+        side_arrow.style.marginLeft = "-5.5px"
     } else {
         upg.style.display = "flex"
+        side_arrow.style.marginLeft = "0px"
     }
 }
 
@@ -261,6 +264,20 @@ function bottombar() {
     } else {
         options.style.display = "flex"
         bottom_arrow.style.marginTop = "192px"
+    }
+}
+
+function rightbar() {
+    //Rightbar
+    let upgrades = document.getElementById("Upg_proper")
+    let right_arrow = document.getElementById("right_arrow")
+
+    if (upgrades.style.display == "flex") {
+        upgrades.style.display = "none"
+        right_arrow.style.marginLeft = "97.3%"
+    } else {
+        upgrades.style.display = "flex"
+        right_arrow.style.marginLeft = "83.9%"
     }
 }
 
